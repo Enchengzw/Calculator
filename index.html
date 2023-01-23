@@ -10,7 +10,7 @@
 <body>
 <div class = page>
     <div class = calculator>
-        <div class = display>36484465</div>
+        <div class = display id = "display"></div>
         <div class = line>
             <button class = clear>CLEAR</button>
             <button class = delete>DELETE</button>
@@ -42,12 +42,14 @@
     </div>
 </div>
 <script>
-    let display = document.querySelector('.display');
+    let display = document.getElementById('display');
 
     const clear = document.querySelector('.clear');
     clear.addEventListener('click', () => {display.innerHTML = '';})
 
-
+    const buttons = document.querySelectorAll('.button');
+    buttons.forEach((button) => {button.addEventListener('click', () =>
+    display.innerHTML += button.innerHTML);}); 
 
 
 
@@ -73,6 +75,9 @@
 
     function Divide(number1,number2) {
 	    return number1/number2;}
+    
+    
+
 </script>
 
 </body>
