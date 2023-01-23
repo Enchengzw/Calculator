@@ -17,6 +17,7 @@
     background-color: darkgrey;
     flex: 0 0 auto;
     align-items: center;
+    border-radius: 15px;
 }
 
 .display {
@@ -28,7 +29,8 @@
     margin-top: 20px;
     justify-content: end;
     align-items: center;
-    
+    border-radius: 10px;
+    font: 25px bolder;
 }
 
 .line {
@@ -44,8 +46,17 @@
 .clear,.delete {
     flex: 1;
     margin-bottom: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
 }
 
+.clear {
+    background-color: lightcoral;
+}
+
+.delete {
+    background-color: lightblue;
+}
 
 .button {
     flex: 1;
@@ -53,4 +64,6 @@
     width: auto;
     background-color: lightgrey;
     margin: 5px;
+    border-radius: 10px;
+    font: 25px bold;
 }
