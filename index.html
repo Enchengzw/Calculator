@@ -69,7 +69,7 @@
             operation_array[0] = Expression.shift();
             operation_array[1] = Expression.shift();
             operation_array[2] = Expression.shift();
-            Expression.unshift(Operate(parseInt(operation_array[0]),operation_array[1],parseInt(operation_array[2])));            
+            Expression.unshift(Operate(parseFloat(operation_array[0]),operation_array[1],parseFloat(operation_array[2])));            
         }
         display.innerHTML = Expression[0];
     }
