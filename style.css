@@ -8,6 +8,10 @@
     width: auto;
 }
 
+.displaycontainer{
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .calculator {
     height: 600px;
@@ -59,6 +63,16 @@
 }
 
 .button {
+    flex: 1;
+    height: auto;
+    width: auto;
+    background-color: lightgrey;
+    margin: 5px;
+    border-radius: 10px;
+    font: 25px bold;
+}
+
+.equal {
     flex: 1;
     height: auto;
     width: auto;

@@ -10,7 +10,9 @@
 <body>
 <div class = page>
     <div class = calculator>
+        <div class = displaycontainer>
         <div class = display id = "display"></div>
+        </div>
         <div class = line>
             <button class = clear>CLEAR</button>
             <button class = delete>DELETE</button>
@@ -36,7 +38,7 @@
         <div class = line>
             <button class = button>0</button>
             <button class = button>.</button>
-            <button class = button>=</button>
+            <button class = equal>=</button>
             <button class = button>+</button>
         </div>
     </div>
@@ -45,15 +47,36 @@
     let display = document.getElementById('display');
 
     const clear = document.querySelector('.clear');
-    clear.addEventListener('click', () => {display.innerHTML = '';})
+    clear.addEventListener('click', () => {display.textContent = '';});
+
+    const deletebtn = document.querySelector('.delete');
+    deletebtn.addEventListener('click', () => {
+        let newtext = display.textContent;
+        newtext.slice(0,-1);
+        display.textContent = newtext;});
 
     const buttons = document.querySelectorAll('.button');
     buttons.forEach((button) => {button.addEventListener('click', () =>
     display.innerHTML += button.innerHTML);}); 
 
+    const equal = document.querySelector('.equal')
+    equal.addEventListener('click', () => {Calculate();});
+
+    function Calculate() {
+        let Expression = display.innerHTML.split(/(\+|\-|\*|\/)/);
+        let operation_number = Math.floor(Expression.length/2);
+        let operation_array = [];
+        for (i = 0; i < operation_number; i++) {
+            operation_array[0] = Expression.shift();
+            operation_array[1] = Expression.shift();
+            operation_array[2] = Expression.shift();
+            Expression.unshift(Operate(parseInt(operation_array[0]),operation_array[1],parseInt(operation_array[2])));            
+        }
+        display.innerHTML = Expression[0];
+    }
 
 
-    function Operate(operator,number1,number2) {
+    function Operate(number1,operator,number2) {
 
         if (operator == '+') {return Add(number1,number2);}
 
