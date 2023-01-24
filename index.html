@@ -50,10 +50,9 @@
     clear.addEventListener('click', () => {display.textContent = '';});
 
     const deletebtn = document.querySelector('.delete');
-    deletebtn.addEventListener('click', () => {
-        let newtext = display.textContent;
-        newtext.slice(0,-1);
-        display.textContent = newtext;});
+    
+    deletebtn.addEventListener('click', () => 
+    {display.textContent = display.textContent.slice(0,-1)});
 
     const buttons = document.querySelectorAll('.button');
     buttons.forEach((button) => {button.addEventListener('click', () =>
